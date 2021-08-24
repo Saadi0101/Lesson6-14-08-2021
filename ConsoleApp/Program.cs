@@ -13,6 +13,8 @@ namespace ConsoleApp
             int d = Convert.ToInt32(Console.ReadLine());
             int[] mas = new int[d];
             double sum = 0;
+            int masMax = mas[0];
+            int masMin = 0;
 
             for (int i = 0; i < mas.Length; i++)
             {
@@ -20,9 +22,13 @@ namespace ConsoleApp
                 int el = Convert.ToInt32(Console.ReadLine());
                 mas[i] = el;
                 sum += mas[i];
+                masMin = mas[0];
+                if (mas [i] < masMin) masMin = mas[i];
+                
+                if (mas[i] > masMax) masMax = mas[i]; 
             }
-            Console.WriteLine($"Наибольшее значение массива: {mas.Max()}");
-            Console.WriteLine($"Наименьшее значение массива: {mas.Min()}");
+            Console.WriteLine($"Наибольшее значение массива: {masMax}");
+            Console.WriteLine($"Наименьшее значение массива: {masMin}");
             Console.WriteLine($"Сумма всех элементов: {sum}");
             Console.WriteLine($"Среднее арифметическое значение всех элементов: {sum / mas.Length}");
             for (int i = 0; i < mas.Length; i++)
